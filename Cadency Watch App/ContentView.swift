@@ -11,11 +11,11 @@ import Combine
 struct CadencyView: View {
     // 상태값 선언
     private let bpmRange: ClosedRange<Int> = 60...240
-    @State private var bpm: Int = 180
+    @State private var bpm: Double = 180
     @State private var isTriggered: Bool = false
-    @State private var hapticStrength: WKHapticType = .click
+    @State private var hapticStrength: WKHapticType = .directionUp
     @State private var timerCancellable: AnyCancellable?
-    @FocusState private var pickerFocused: Bool
+    @FocusState private var bpmPickerFocused: Bool
 
     // 진동 강도 옵션
     private let hapticOptions: [(label: String, type: WKHapticType)] = [
@@ -26,8 +26,8 @@ struct CadencyView: View {
     @State private var hapticIndex: Int = 0
 
     // BPM에서 interval(초) 계산
-    private func interval() -> Double {
-        return 60.0 / Double(bpm)
+    private var interval: Double {
+        60.0 / Double(bpm)
     }
 
     var body: some View {
@@ -36,14 +36,22 @@ struct CadencyView: View {
             VStack {
                 Text("BPM")
                     .font(.caption2)
-                Picker(selection: $bpm, label: Text("\(bpm)")) {
+                Picker(selection: $bpm, label: Text("\(Int(bpm))")) {
                     ForEach(bpmRange, id: \.self) { value in
                         Text("\(value)")
                             .tag(value)
                     }
                 }
                 .pickerStyle(.wheel)
-                .focusable(true)
+                .digitalCrownRotation(
+                    $bpm,
+                    from: Double(bpmRange.lowerBound),
+                    through: Double(bpmRange.upperBound),
+                    by: 1,
+                    sensitivity: .medium,
+                    isContinuous: false,
+                    isHapticFeedbackEnabled: true
+                )
             }
 
             // 진동 세기 선택
@@ -76,7 +84,7 @@ struct CadencyView: View {
     // 메트로놈 시작 함수
     func startMetronome() {
         isTriggered = true
-        timerCancellable = Timer.publish(every: interval(), on: .main, in: .common)
+        timerCancellable = Timer.publish(every: interval, on: .main, in: .common)
             .autoconnect()
             .sink { _ in
                 WKInterfaceDevice.current().play(hapticOptions[hapticIndex].type)
