@@ -43,15 +43,8 @@ struct CadencyView: View {
                     }
                 }
                 .pickerStyle(.wheel)
-                .digitalCrownRotation(
-                    $bpm,
-                    from: Double(bpmRange.lowerBound),
-                    through: Double(bpmRange.upperBound),
-                    by: 1,
-                    sensitivity: .medium,
-                    isContinuous: false,
-                    isHapticFeedbackEnabled: true
-                )
+                .focusable()
+                // FIXME: 뷰 동작 보고 digitalCrownRotation 연결 필요
             }
 
             // 진동 세기 선택
