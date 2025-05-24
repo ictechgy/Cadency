@@ -11,7 +11,7 @@ import SwiftUI
 struct Cadency_Watch_AppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CadencyView()
         }
     }
 }
