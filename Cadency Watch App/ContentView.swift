@@ -30,6 +30,7 @@ struct CadencyView: View {
         60.0 / Double(bpm)
     }
 
+    // 페이징 형태로 좌측에는 시작/정지만, 우측으로 페이징하면 상세설정할 수 있도록 변경
     var body: some View {
         VStack(spacing: 16) {
             // BPM 표시 및 크라운 조작
