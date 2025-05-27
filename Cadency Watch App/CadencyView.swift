@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  CadencyView.swift
 //  Cadency Watch App
 //
 //  Created by JINHONG AN on 5/24/25.
