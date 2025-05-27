@@ -1,0 +1,667 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C98C81962DE203A900A09474 /* Cadency Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C98C81952DE203A900A09474 /* Cadency Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C98C81972DE203A900A09474 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C98C81892DE203A900A09474 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C98C81942DE203A900A09474;
+			remoteInfo = "Cadency Watch App";
+		};
+		C98C81A82DE203AA00A09474 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C98C81892DE203A900A09474 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C98C81942DE203A900A09474;
+			remoteInfo = "Cadency Watch App";
+		};
+		C98C81B22DE203AA00A09474 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C98C81892DE203A900A09474 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C98C81942DE203A900A09474;
+			remoteInfo = "Cadency Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C98C81BE2DE203AA00A09474 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				C98C81962DE203A900A09474 /* Cadency Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		C98C818F2DE203A900A09474 /* Cadency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cadency.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C98C81952DE203A900A09474 /* Cadency Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cadency Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C98C81A72DE203AA00A09474 /* Cadency Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cadency Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C98C81B12DE203AA00A09474 /* Cadency Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cadency Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		C98C81992DE203A900A09474 /* Cadency Watch App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Cadency Watch App";
+			sourceTree = "<group>";
+		};
+		C98C81AA2DE203AA00A09474 /* Cadency Watch AppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Cadency Watch AppTests";
+			sourceTree = "<group>";
+		};
+		C98C81B42DE203AA00A09474 /* Cadency Watch AppUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Cadency Watch AppUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C98C81922DE203A900A09474 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C98C81A42DE203AA00A09474 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C98C81AE2DE203AA00A09474 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C98C81882DE203A900A09474 = {
+			isa = PBXGroup;
+			children = (
+				C98C81992DE203A900A09474 /* Cadency Watch App */,
+				C98C81AA2DE203AA00A09474 /* Cadency Watch AppTests */,
+				C98C81B42DE203AA00A09474 /* Cadency Watch AppUITests */,
+				C98C81902DE203A900A09474 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C98C81902DE203A900A09474 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C98C818F2DE203A900A09474 /* Cadency.app */,
+				C98C81952DE203A900A09474 /* Cadency Watch App.app */,
+				C98C81A72DE203AA00A09474 /* Cadency Watch AppTests.xctest */,
+				C98C81B12DE203AA00A09474 /* Cadency Watch AppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C98C818E2DE203A900A09474 /* Cadency */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C98C81BF2DE203AA00A09474 /* Build configuration list for PBXNativeTarget "Cadency" */;
+			buildPhases = (
+				C98C818D2DE203A900A09474 /* Resources */,
+				C98C81BE2DE203AA00A09474 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C98C81982DE203A900A09474 /* PBXTargetDependency */,
+			);
+			name = Cadency;
+			packageProductDependencies = (
+			);
+			productName = Cadency;
+			productReference = C98C818F2DE203A900A09474 /* Cadency.app */;
+			productType = "com.apple.product-type.application.watchapp2-container";
+		};
+		C98C81942DE203A900A09474 /* Cadency Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C98C81BB2DE203AA00A09474 /* Build configuration list for PBXNativeTarget "Cadency Watch App" */;
+			buildPhases = (
+				C98C81912DE203A900A09474 /* Sources */,
+				C98C81922DE203A900A09474 /* Frameworks */,
+				C98C81932DE203A900A09474 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				C98C81992DE203A900A09474 /* Cadency Watch App */,
+			);
+			name = "Cadency Watch App";
+			packageProductDependencies = (
+			);
+			productName = "Cadency Watch App";
+			productReference = C98C81952DE203A900A09474 /* Cadency Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C98C81A62DE203AA00A09474 /* Cadency Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C98C81C22DE203AA00A09474 /* Build configuration list for PBXNativeTarget "Cadency Watch AppTests" */;
+			buildPhases = (
+				C98C81A32DE203AA00A09474 /* Sources */,
+				C98C81A42DE203AA00A09474 /* Frameworks */,
+				C98C81A52DE203AA00A09474 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C98C81A92DE203AA00A09474 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				C98C81AA2DE203AA00A09474 /* Cadency Watch AppTests */,
+			);
+			name = "Cadency Watch AppTests";
+			packageProductDependencies = (
+			);
+			productName = "Cadency Watch AppTests";
+			productReference = C98C81A72DE203AA00A09474 /* Cadency Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C98C81B02DE203AA00A09474 /* Cadency Watch AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C98C81C52DE203AA00A09474 /* Build configuration list for PBXNativeTarget "Cadency Watch AppUITests" */;
+			buildPhases = (
+				C98C81AD2DE203AA00A09474 /* Sources */,
+				C98C81AE2DE203AA00A09474 /* Frameworks */,
+				C98C81AF2DE203AA00A09474 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C98C81B32DE203AA00A09474 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				C98C81B42DE203AA00A09474 /* Cadency Watch AppUITests */,
+			);
+			name = "Cadency Watch AppUITests";
+			packageProductDependencies = (
+			);
+			productName = "Cadency Watch AppUITests";
+			productReference = C98C81B12DE203AA00A09474 /* Cadency Watch AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C98C81892DE203A900A09474 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					C98C818E2DE203A900A09474 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					C98C81942DE203A900A09474 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					C98C81A62DE203AA00A09474 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = C98C81942DE203A900A09474;
+					};
+					C98C81B02DE203AA00A09474 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = C98C81942DE203A900A09474;
+					};
+				};
+			};
+			buildConfigurationList = C98C818C2DE203A900A09474 /* Build configuration list for PBXProject "Cadency" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C98C81882DE203A900A09474;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = C98C81902DE203A900A09474 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C98C818E2DE203A900A09474 /* Cadency */,
+				C98C81942DE203A900A09474 /* Cadency Watch App */,
+				C98C81A62DE203AA00A09474 /* Cadency Watch AppTests */,
+				C98C81B02DE203AA00A09474 /* Cadency Watch AppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C98C818D2DE203A900A09474 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C98C81932DE203A900A09474 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C98C81A52DE203AA00A09474 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C98C81AF2DE203AA00A09474 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C98C81912DE203A900A09474 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C98C81A32DE203AA00A09474 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C98C81AD2DE203AA00A09474 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C98C81982DE203A900A09474 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C98C81942DE203A900A09474 /* Cadency Watch App */;
+			targetProxy = C98C81972DE203A900A09474 /* PBXContainerItemProxy */;
+		};
+		C98C81A92DE203AA00A09474 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C98C81942DE203A900A09474 /* Cadency Watch App */;
+			targetProxy = C98C81A82DE203AA00A09474 /* PBXContainerItemProxy */;
+		};
+		C98C81B32DE203AA00A09474 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C98C81942DE203A900A09474 /* Cadency Watch App */;
+			targetProxy = C98C81B22DE203AA00A09474 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		C98C81B92DE203AA00A09474 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C98C81BA2DE203AA00A09474 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		C98C81BC2DE203AA00A09474 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Cadency Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = J8CB2X29B5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Cadency;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.coden.Cadency.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Debug;
+		};
+		C98C81BD2DE203AA00A09474 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Cadency Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = J8CB2X29B5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Cadency;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.coden.Cadency.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Release;
+		};
+		C98C81C02DE203AA00A09474 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J8CB2X29B5;
+				INFOPLIST_KEY_CFBundleDisplayName = Cadency;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.coden.Cadency;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		C98C81C12DE203AA00A09474 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J8CB2X29B5;
+				INFOPLIST_KEY_CFBundleDisplayName = Cadency;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.coden.Cadency;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C98C81C32DE203AA00A09474 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.coden.Cadency-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cadency Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Cadency Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Debug;
+		};
+		C98C81C42DE203AA00A09474 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.coden.Cadency-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cadency Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Cadency Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Release;
+		};
+		C98C81C62DE203AA00A09474 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.coden.Cadency-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "Cadency Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Debug;
+		};
+		C98C81C72DE203AA00A09474 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.coden.Cadency-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "Cadency Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C98C818C2DE203A900A09474 /* Build configuration list for PBXProject "Cadency" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C98C81B92DE203AA00A09474 /* Debug */,
+				C98C81BA2DE203AA00A09474 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C98C81BB2DE203AA00A09474 /* Build configuration list for PBXNativeTarget "Cadency Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C98C81BC2DE203AA00A09474 /* Debug */,
+				C98C81BD2DE203AA00A09474 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C98C81BF2DE203AA00A09474 /* Build configuration list for PBXNativeTarget "Cadency" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C98C81C02DE203AA00A09474 /* Debug */,
+				C98C81C12DE203AA00A09474 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C98C81C22DE203AA00A09474 /* Build configuration list for PBXNativeTarget "Cadency Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C98C81C32DE203AA00A09474 /* Debug */,
+				C98C81C42DE203AA00A09474 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C98C81C52DE203AA00A09474 /* Build configuration list for PBXNativeTarget "Cadency Watch AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C98C81C62DE203AA00A09474 /* Debug */,
+				C98C81C72DE203AA00A09474 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C98C81892DE203A900A09474 /* Project object */;
+}
