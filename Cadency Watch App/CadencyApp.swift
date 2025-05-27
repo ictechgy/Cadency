@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct Cadency_Watch_AppApp: App {
@@ -13,5 +14,6 @@ struct Cadency_Watch_AppApp: App {
         WindowGroup {
             CadencyView()
         }
+        .modelContainer(for: MetronomeSetting.self)
     }
 }
