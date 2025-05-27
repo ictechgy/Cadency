@@ -16,6 +16,7 @@ struct SettingView: View {
     @State private var hapticStrength: WKHapticType = .directionUp
     @State private var timerCancellable: AnyCancellable?
     @FocusState private var bpmPickerFocused: Bool
+    // SwiftData로 저장 필요 - BPM 및 진동세기값
 
     // 진동 강도 옵션
     private let hapticOptions: [(label: String, type: WKHapticType)] = [
