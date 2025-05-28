@@ -9,22 +9,22 @@ import SwiftUI
 import SwiftData
 
 struct SettingView: View {
-    // 상태값 선언
     @Environment(\.modelContext) private var modelContext
     @Query private var metronomeSettings: [MetronomeSetting]
     
-    // 설정값 불러와서 State bpm에 연결
     private let bpmRange: ClosedRange<Int> = 140...240
-    @FocusState private var bpmPickerFocused: Bool
-    // SwiftData로 저장 필요 - BPM 및 진동세기값
-
     // 진동 강도 옵션
     private let hapticOptions: [(label: String, type: WKHapticType)] = [
         ("Light", .click),
         ("Medium", .directionUp),
         ("Strong", .retry) // TODO: 대체 필요
     ]
+    
+    @State private var bpm = 0
     @State private var hapticIndex: Int = 0
+    @FocusState private var bpmPickerFocused: Bool
+    // SwiftData로 저장 필요 - BPM 및 진동세기값
+    
 
     // 페이징 형태로 좌측에는 시작/정지만, 우측으로 페이징하면 상세설정할 수 있도록 변경
     // 백그라운드로 가거나 화면이 꺼진 경우 진동 동작은 불가할 수 있으므로 이에 대한 대응책 필요 - 소리, 화면, 진동
@@ -62,5 +62,13 @@ struct SettingView: View {
             }
         }
         .padding()
+        .onAppear {
+            self.bpm = metronomeSettings.last?.bpm ?? MetronomeSetting.defaultBPM
+            
+            let hapticType = metronomeSettings.last?.hapticType ?? MetronomeSetting.defaultHapticType
+            if let savedHapticTypeIndex = hapticOptions.firstIndex(where: { $0.type == hapticType }) {
+                self.hapticIndex = savedHapticTypeIndex
+            }
+        }
     }
 }
