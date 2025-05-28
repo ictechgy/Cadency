@@ -13,6 +13,7 @@ struct StartStopButtonView: View {
     @State private var isTriggered: Bool = false
     @State private var timerCancellable: AnyCancellable?
     @Query private var metronomeSettings: [MetronomeSetting]
+    @Environment(\.scenePhase) private var scenePhase
     
     private var bpm: Int {
         metronomeSettings.last?.bpm ?? MetronomeSetting.defaultBPM
@@ -30,7 +31,7 @@ struct StartStopButtonView: View {
     var body: some View {
         // 시작/정지 버튼
         Button {
-            isTriggered ? stopMetronome() : startMetronome()
+            isTriggered ? stopMetronome(keepTrigger: false) : startMetronome()
         } label: {
             Text(isTriggered ? "정지" : "시작")
                 .font(.title3)
@@ -42,6 +43,18 @@ struct StartStopButtonView: View {
         }
         .tint(isTriggered ? .red : .green)
         .buttonStyle(.borderless)
+        .onChange(of: scenePhase) { _, newValue in
+            switch newValue {
+            case .active where isTriggered && timerCancellable == nil :
+                startMetronome()
+            case .active:
+                break
+            case .inactive, .background:
+                stopMetronome(keepTrigger: true)
+            @unknown default:
+                stopMetronome(keepTrigger: true)
+            }
+        }
     }
 }
 
@@ -57,8 +70,10 @@ extension StartStopButtonView {
     }
 
     // 메트로놈 정지 함수
-    func stopMetronome() {
-        isTriggered = false
+    func stopMetronome(keepTrigger: Bool) {
+        if keepTrigger == false {
+            isTriggered = false
+        }
         timerCancellable?.cancel()
         timerCancellable = nil
     }
