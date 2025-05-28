@@ -34,7 +34,7 @@ struct SettingView: View {
                 
                 Text("BPM")
                     .font(.caption2)
-                Picker(selection: $bpm, label: Text("\(Int(bpm))")) {
+                Picker(selection: $bpm, label: EmptyView()) {
                     ForEach(bpmRange, id: \.self) { value in
                         Text("\(value)")
                             .tag(value)
