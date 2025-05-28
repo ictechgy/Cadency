@@ -34,10 +34,14 @@ struct StartStopButtonView: View {
         } label: {
             Text(isTriggered ? "정지" : "시작")
                 .font(.title3)
-                .frame(maxWidth: .infinity)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background {
+                    Circle()
+                        .fill(isTriggered ? .red.opacity(0.3) : .green.opacity(0.3))
+                }
         }
         .tint(isTriggered ? .red : .green)
-        .buttonStyle(.borderedProminent)
+        .buttonStyle(.borderless)
     }
 }
 
