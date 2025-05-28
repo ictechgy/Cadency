@@ -22,7 +22,7 @@ struct SettingView: View {
     private let hapticOptions: [(label: String, type: WKHapticType)] = [
         ("Light", .click),
         ("Medium", .directionUp),
-        ("Strong", .retry)
+        ("Strong", .retry) // TODO: 대체 필요
     ]
     @State private var hapticIndex: Int = 0
 
