@@ -12,14 +12,6 @@ struct SettingView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var metronomeSettings: [MetronomeSetting]
     
-    private let bpmRange: ClosedRange<Int> = 140...240
-    // 진동 강도 옵션
-    private let hapticOptions: [(label: String, type: WKHapticType)] = [
-        ("Light", .click),
-        ("Medium", .directionUp),
-        ("Strong", .retry) // TODO: 대체 필요
-    ]
-    
     @State private var bpm: Double = 0
     private let bpmStep: Double = 1
     @State private var hapticIndex: Int = 0
