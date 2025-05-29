@@ -10,10 +10,10 @@ import WatchKit
 
 @Model
 final class MetronomeSetting {
-    var bpm: Int
+    var bpm: Double
     var hapticTypeRawValue: Int
     
-    init(bpm: Int, hapticType: WKHapticType) {
+    init(bpm: Double, hapticType: WKHapticType) {
         self.bpm = bpm
         self.hapticTypeRawValue = hapticType.rawValue
     }
@@ -24,7 +24,7 @@ extension MetronomeSetting {
         return WKHapticType(rawValue: hapticTypeRawValue)
     }
     
-    static var defaultBPM: Int {
+    static var defaultBPM: Double {
         return 180
     }
     

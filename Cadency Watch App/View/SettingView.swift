@@ -20,7 +20,8 @@ struct SettingView: View {
         ("Strong", .retry) // TODO: 대체 필요
     ]
     
-    @State private var bpm = 0
+    @State private var bpm: Double = 0
+    private let bpmStep: Double = 1
     @State private var hapticIndex: Int = 0
     @FocusState private var bpmPickerFocused: Bool
     // SwiftData로 저장 필요 - BPM 및 진동세기값
@@ -42,7 +43,15 @@ struct SettingView: View {
                 }
                 .pickerStyle(.wheel)
                 .focusable()
-                // FIXME: 뷰 동작 보고 digitalCrownRotation 연결 필요
+                .digitalCrownRotation(
+                    $bpm,
+                    from: Double(bpmRange.lowerBound),
+                    through: Double(bpmRange.upperBound),
+                    by: bpmStep,
+                    sensitivity: .low,
+                    isContinuous: false,
+                    isHapticFeedbackEnabled: true
+                )
             }
             
             // 진동 세기 선택

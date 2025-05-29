@@ -15,7 +15,7 @@ struct StartStopButtonView: View {
     @Query private var metronomeSettings: [MetronomeSetting]
     @Environment(\.scenePhase) private var scenePhase
     
-    private var bpm: Int {
+    private var bpm: Double {
         metronomeSettings.last?.bpm ?? MetronomeSetting.defaultBPM
     }
     
@@ -25,7 +25,7 @@ struct StartStopButtonView: View {
     
     // BPM에서 interval(초) 계산
     private var interval: Double {
-        60.0 / Double(bpm)
+        60.0 / bpm
     }
     
     var body: some View {
