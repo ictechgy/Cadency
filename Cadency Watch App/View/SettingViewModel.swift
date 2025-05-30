@@ -35,6 +35,7 @@ final class SettingViewModel {
 
 extension SettingViewModel {
     func changeBPM(to newBPM: Double) {
-        
+        self.bpm = newBPM
+        modelContext.insert(<#T##model: PersistentModel##PersistentModel#>)
     }
 }
