@@ -13,7 +13,7 @@ struct SettingView: View {
     @Query private var metronomeSettings: [MetronomeSetting]
     
     @State private var bpm: Double = 0
-    private let bpmStep: Double = 1
+    private let bpmStep: Double = 5
     @State private var hapticIndex: Int = 0
     @FocusState private var bpmPickerFocused: Bool
     // SwiftData로 저장 필요 - BPM 및 진동세기값
