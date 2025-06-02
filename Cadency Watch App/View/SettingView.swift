@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 
-struct SettingView: View {[(label: String, type: WKHapticType)]
+struct SettingView: View {
     let viewModel: SettingViewModel
     
     @FocusState private var bpmPickerFocused: Bool
