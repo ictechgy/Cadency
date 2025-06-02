@@ -25,6 +25,10 @@ struct SettingView: View {
         SettingViewModel.Constants.bpmStep
     }
     
+    private var hapticOptions: [(label: String, type: WKHapticType)] {
+        SettingViewModel.Constants.hapticOptions
+    }
+    
     var body: some View {
         VStack(spacing: 16) {
             // BPM 표시 및 크라운 조작
