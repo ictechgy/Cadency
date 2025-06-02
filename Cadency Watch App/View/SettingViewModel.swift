@@ -24,6 +24,7 @@ final class SettingViewModel {
     private(set) var hapticType: WKHapticType
     private var hapticIndex: Int = 0
     private let modelContext: ModelContext
+    @MainActor private var bpmSavingTask: Task<Void, Error>?
     
     init(modelContext: ModelContext) {
         modelContext.fetch(., batchSize: <#T##Int#>)
@@ -34,8 +35,22 @@ final class SettingViewModel {
 }
 
 extension SettingViewModel {
+    @MainActor
     func changeBPM(to newBPM: Double) {
         self.bpm = newBPM
-        modelContext.insert(<#T##model: PersistentModel##PersistentModel#>)
+        
+        self.bpmSavingTask?.cancel()
+        self.bpmSavingTask = nil
+        self.bpmSavingTask = Task {
+            try await Task.sleep(for: .milliseconds(500))
+            try Task.checkCancellation()
+            
+            modelContext.insert(
+                MetronomeSetting(
+                    bpm: self.bpm,
+                    hapticType: self.hapticType
+                )
+            )
+        }
     }
 }
