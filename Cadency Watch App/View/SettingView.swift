@@ -60,7 +60,11 @@ struct SettingView: View {
             
             // 진동 세기 선택
             VStack {
-                Picker(selection: $hapticIndex) {
+                Picker(selection: Binding(get: {
+                    viewModel.hapticType
+                }, set: { newValue in
+                    viewModel.changeHapticType(to: newValue)
+                })) {
                     ForEach(hapticOptions.indices, id: \.self) { idx in
                         Text(hapticOptions[idx].label)
                             .tag(idx)
