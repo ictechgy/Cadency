@@ -27,9 +27,12 @@ final class SettingViewModel {
     @MainActor private var bpmSavingTask: Task<Void, Error>?
     
     init(modelContext: ModelContext) {
-        modelContext.fetch(., batchSize: <#T##Int#>)
-        self.bpm = bpm
-        self.hapticType = hapticType
+        let latestSetting = (try? modelContext.fetch(
+            FetchDescriptor<MetronomeSetting>(),
+            batchSize: 1
+        ).last) ?? .defaultSetting
+        self.bpm = latestSetting.bpm
+        self.hapticType = latestSetting.hapticType ?? MetronomeSetting.defaultHapticType
         self.modelContext = modelContext
     }
 }

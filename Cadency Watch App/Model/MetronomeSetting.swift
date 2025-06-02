@@ -31,4 +31,11 @@ extension MetronomeSetting {
     static var defaultHapticType: WKHapticType {
         return .directionUp
     }
+    
+    static var defaultSetting: MetronomeSetting {
+        return .init(
+            bpm: defaultBPM,
+            hapticType: defaultHapticType
+        )
+    }
 }
