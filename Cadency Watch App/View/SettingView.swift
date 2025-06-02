@@ -80,17 +80,15 @@ struct SettingView: View {
             }
         }
         .padding()
-        .onAppear {
-            self.bpm = metronomeSettings.last?.bpm ?? MetronomeSetting.defaultBPM
-            
-            let hapticType = metronomeSettings.last?.hapticType ?? MetronomeSetting.defaultHapticType
-            if let savedHapticTypeIndex = hapticOptions.firstIndex(where: { $0.type == hapticType }) {
-                self.hapticIndex = savedHapticTypeIndex
-            }
-        }
     }
 }
 
 #Preview {
-    SettingView()
+    SettingView(
+        viewModel: SettingViewModel(
+            modelContext: ModelContext(
+                ModelContainer(for: MetronomeSetting.self)
+            )
+        )
+    )
 }
