@@ -12,10 +12,6 @@ struct SettingView: View {
     let viewModel: SettingViewModel
     
     @FocusState private var bpmPickerFocused: Bool
-    // SwiftData로 저장 필요 - BPM 및 진동세기값
-    // 백그라운드로 가거나 화면이 꺼진 경우 진동 동작은 불가할 수 있으므로 이에 대한 대응책 필요 - 소리, 화면, 진동
-    // 화면으로 BPM 노티하는 기능도 별도로 있으면 괜찮으려나? BPM 맞춰서 반짝반짝.
-    // 더불어 > 조금 느려요 / 조금 빨라요 노티기능..?
     
     var body: some View {
         VStack(spacing: 16) {
