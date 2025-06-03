@@ -16,17 +16,6 @@ struct SettingView: View {
     // 백그라운드로 가거나 화면이 꺼진 경우 진동 동작은 불가할 수 있으므로 이에 대한 대응책 필요 - 소리, 화면, 진동
     // 화면으로 BPM 노티하는 기능도 별도로 있으면 괜찮으려나? BPM 맞춰서 반짝반짝.
     // 더불어 > 조금 느려요 / 조금 빨라요 노티기능..?
-    private var bpmRange: ClosedRange<Int> {
-        SettingViewModel.Constants.bpmRange
-    }
-    
-    private var bpmStep: Double {
-        SettingViewModel.Constants.bpmStep
-    }
-    
-    private var hapticOptions: [(label: String, type: WKHapticType)] {
-        SettingViewModel.Constants.hapticOptions
-    }
     
     var body: some View {
         VStack(spacing: 16) {
@@ -39,7 +28,7 @@ struct SettingView: View {
                 }, set: { newBPM in
                     viewModel.changeBPM(to: newBPM)
                 }), label: EmptyView()) {
-                    ForEach(bpmRange, id: \.self) { value in
+                    ForEach(Constants.bpmRange, id: \.self) { value in
                         Text("\(value)")
                             .tag(value)
                     }
@@ -48,13 +37,13 @@ struct SettingView: View {
                 .focusable()
                 .digitalCrownRotation(
                     Binding(get: {
-                        viewModel.bpm
+                        Double(viewModel.bpm)
                     }, set: { newBPM in
-                        viewModel.changeBPM(to: newBPM)
+                        viewModel.changeBPM(to: Int(newBPM))
                     }),
-                    from: Double(bpmRange.lowerBound),
-                    through: Double(bpmRange.upperBound),
-                    by: bpmStep,
+                    from: Double(Constants.bpmStart),
+                    through: Double(Constants.bpmEnd),
+                    by: Double(Constants.bpmStep),
                     sensitivity: .low,
                     isContinuous: false,
                     isHapticFeedbackEnabled: true
@@ -68,8 +57,8 @@ struct SettingView: View {
                 }, set: { newValue in
                     viewModel.changeHapticType(to: newValue)
                 })) {
-                    ForEach(hapticOptions.indices, id: \.self) { idx in
-                        Text(hapticOptions[idx].label)
+                    ForEach(Constants.hapticOptions.indices, id: \.self) { idx in
+                        Text(Constants.hapticOptions[idx].label)
                             .tag(idx)
                     }
                 } label: {

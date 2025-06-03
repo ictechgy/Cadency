@@ -10,17 +10,7 @@ import SwiftData
 
 @Observable
 final class SettingViewModel {
-    enum Constants {
-        static let bpmRange: ClosedRange<Int> = 140...240
-        static let hapticOptions: [(label: String, type: WKHapticType)] = [
-            ("Light", .click),
-            ("Medium", .directionUp),
-            ("Strong", .retry) // TODO: 대체 필요
-        ]
-        static let bpmStep: Double = 5
-    }
-    
-    private(set) var bpm: Double
+    private(set) var bpm: Int
     private(set) var hapticType: WKHapticType
     private var hapticIndex: Int = 0
     private let modelContext: ModelContext
@@ -40,7 +30,7 @@ final class SettingViewModel {
 
 extension SettingViewModel {
     @MainActor
-    func changeBPM(to newBPM: Double) {
+    func changeBPM(to newBPM: Int) {
         self.bpm = newBPM
         
         self.bpmSavingTask?.cancel()
