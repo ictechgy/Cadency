@@ -18,9 +18,10 @@ final class SettingViewModel {
     @MainActor private var hapticTypeSavingTask: Task<Void, Error>?
     
     init(modelContext: ModelContext) {
-        let latestSetting = (try? modelContext.fetch(
-            FetchDescriptor<MetronomeSetting>()
-        ).last) ?? .defaultSetting
+        var fetchDescriptior = FetchDescriptor<MetronomeSetting>(sortBy: [.init(\.createdAt, order: .reverse)])
+        fetchDescriptior.fetchLimit = 1
+        
+        let latestSetting = (try? modelContext.fetch(fetchDescriptior).last) ?? .defaultSetting
         self.bpm = latestSetting.bpm
         self.hapticType = latestSetting.hapticType ?? MetronomeSetting.defaultHapticType
         self.modelContext = modelContext
