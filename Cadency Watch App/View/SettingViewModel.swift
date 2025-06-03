@@ -40,13 +40,7 @@ extension SettingViewModel {
             try await Task.sleep(for: debounceTime)
             try Task.checkCancellation()
             
-            modelContext.insert(
-                MetronomeSetting(
-                    bpm: self.bpm,
-                    hapticType: self.hapticType
-                )
-            )
-            try? modelContext.save()
+            self.saveCurrentState()
         }
     }
     
@@ -60,13 +54,17 @@ extension SettingViewModel {
             try await Task.sleep(for: debounceTime)
             try Task.checkCancellation()
             
-            modelContext.insert(
-                MetronomeSetting(
-                    bpm: self.bpm,
-                    hapticType: self.hapticType
-                )
-            )
-            try? modelContext.save()
+            self.saveCurrentState()
         }
+    }
+    
+    private func saveCurrentState() {
+        modelContext.insert(
+            MetronomeSetting(
+                bpm: self.bpm,
+                hapticType: self.hapticType
+            )
+        )
+        try? modelContext.save()
     }
 }
