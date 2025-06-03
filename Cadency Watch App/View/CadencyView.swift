@@ -9,10 +9,12 @@ import SwiftUI
 import Combine
 
 struct CadencyView: View {
+    @Environment(\.modelContext) private var modelContext
+    
     var body: some View {
         TabView {
             StartStopButtonView()
-            SettingView()
+            SettingView(viewModel: SettingViewModel(modelContext: modelContext))
         }
         .tabViewStyle(.page)
     }

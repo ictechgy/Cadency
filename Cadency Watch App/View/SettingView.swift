@@ -83,11 +83,11 @@ struct SettingView: View {
 }
 
 #Preview {
+    @Previewable @Environment(\.modelContext) var modelContext
+    
     SettingView(
         viewModel: SettingViewModel(
-            modelContext: ModelContext(
-                ModelContainer(for: MetronomeSetting.self)
-            )
+            modelContext: modelContext
         )
     )
 }
