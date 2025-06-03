@@ -12,56 +12,14 @@ enum Constants {
     static let bpmEnd: Int = 200
     static let bpmStep: Int = 5
     static let bpmRange = Array(stride(from: bpmStart, through: bpmEnd, by: bpmStep))
-    static let hapticOptions: [(label: String, type: WKHapticType)] = WKHapticType.allCases.map { ($0.description, $0) }
-//        ("Light", .click),
-//        ("Medium", .start),
-//        ("Strong", .directionUp)
-
+    static let hapticOptions: [(label: String, type: WKHapticType)] = [
+        ("Light", .click),
+        ("Medium", .stop),
+        ("Strong", .directionDown)
+    ]
 }
 
 // TODO: -
 // 백그라운드로 가거나 화면이 꺼진 경우 진동 동작은 불가할 수 있으므로 이에 대한 대응책 필요 - 소리, 화면, 진동
 // 화면으로 BPM 노티하는 기능도 별도로 있으면 괜찮으려나? BPM 맞춰서 반짝반짝.
 // 더불어 > 조금 느려요 / 조금 빨라요 노티기능..?
-
-extension WKHapticType: @retroactive CaseIterable {
-    public static var allCases: [WKHapticType] {
-        [.notification, .directionUp, .directionDown, .success, .failure, .retry, .start, .stop, .click, .navigationGenericManeuver, .navigationLeftTurn, .navigationRightTurn, .underwaterDepthCriticalPrompt, .underwaterDepthPrompt]
-    }
-    
-    var description: String {
-        switch self {
-            
-        case .notification:
-            "notification"
-        case .directionUp:
-            "directionUp"
-        case .directionDown:
-            "directionDown"
-        case .success:
-            "success"
-        case .failure:
-            "failure"
-        case .retry:
-            "retry"
-        case .start:
-            "start"
-        case .stop:
-            "stop"
-        case .click:
-            "click"
-        case .navigationLeftTurn:
-            "navigationLeftTurn"
-        case .navigationRightTurn:
-            "navigationRightTurn"
-        case .navigationGenericManeuver:
-            "navigationGenericManeuver"
-        case .underwaterDepthPrompt:
-            "underwaterDepthPrompt"
-        case .underwaterDepthCriticalPrompt:
-            "underwaterDepthCriticalPrompt"
-        @unknown default:
-            "unknown"
-        }
-    }
-}
