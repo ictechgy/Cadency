@@ -57,9 +57,9 @@ struct SettingView: View {
                 }, set: { newValue in
                     viewModel.changeHapticType(to: newValue)
                 })) {
-                    ForEach(Constants.hapticOptions.indices, id: \.self) { idx in
-                        Text(Constants.hapticOptions[idx].label)
-                            .tag(idx)
+                    ForEach(Constants.hapticOptions, id: \.label) { label, type in
+                        Text(label)
+                            .tag(type)
                     }
                 } label: {
                     Text("진동 세기")

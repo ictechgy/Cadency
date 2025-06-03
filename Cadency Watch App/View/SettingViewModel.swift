@@ -45,6 +45,7 @@ extension SettingViewModel {
                     hapticType: self.hapticType
                 )
             )
+            try? modelContext.save()
         }
     }
     
@@ -64,6 +65,7 @@ extension SettingViewModel {
                     hapticType: self.hapticType
                 )
             )
+            try? modelContext.save()
         }
     }
 }
