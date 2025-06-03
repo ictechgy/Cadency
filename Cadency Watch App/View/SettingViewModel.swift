@@ -31,14 +31,13 @@ final class SettingViewModel {
 extension SettingViewModel {
     @MainActor
     func changeBPM(to newBPM: Int) {
-        self.bpm = newBPM
-        
         self.bpmSavingTask?.cancel()
         self.bpmSavingTask = nil
         self.bpmSavingTask = Task {
             try await Task.sleep(for: .milliseconds(500))
             try Task.checkCancellation()
             
+            self.bpm = newBPM
             modelContext.insert(
                 MetronomeSetting(
                     bpm: self.bpm,
@@ -51,14 +50,13 @@ extension SettingViewModel {
     
     @MainActor
     func changeHapticType(to newHapticType: WKHapticType) {
-        self.hapticType = newHapticType
-        
         self.hapticTypeSavingTask?.cancel()
         self.hapticTypeSavingTask = nil
         self.hapticTypeSavingTask = Task {
             try await Task.sleep(for: .milliseconds(500))
             try Task.checkCancellation()
             
+            self.hapticType = newHapticType
             modelContext.insert(
                 MetronomeSetting(
                     bpm: self.bpm,
