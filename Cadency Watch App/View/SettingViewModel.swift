@@ -10,6 +10,7 @@ import SwiftData
 
 @Observable
 final class SettingViewModel {
+    private let debounceTime: Duration = .milliseconds(500)
     private(set) var bpm: Int
     private(set) var hapticType: WKHapticType
     private var hapticIndex: Int = 0
@@ -36,7 +37,7 @@ extension SettingViewModel {
         self.bpmSavingTask?.cancel()
         self.bpmSavingTask = nil
         self.bpmSavingTask = Task {
-            try await Task.sleep(for: .milliseconds(500))
+            try await Task.sleep(for: debounceTime)
             try Task.checkCancellation()
             
             modelContext.insert(
@@ -56,7 +57,7 @@ extension SettingViewModel {
         self.hapticTypeSavingTask?.cancel()
         self.hapticTypeSavingTask = nil
         self.hapticTypeSavingTask = Task {
-            try await Task.sleep(for: .milliseconds(500))
+            try await Task.sleep(for: debounceTime)
             try Task.checkCancellation()
             
             modelContext.insert(
