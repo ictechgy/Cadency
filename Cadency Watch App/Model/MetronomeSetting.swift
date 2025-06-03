@@ -10,12 +10,14 @@ import WatchKit
 
 @Model
 final class MetronomeSetting {
+    var createdAt: Date
     var bpm: Int
     var hapticTypeRawValue: Int
     
     init(bpm: Int, hapticType: WKHapticType) {
         self.bpm = bpm
         self.hapticTypeRawValue = hapticType.rawValue
+        self.createdAt = Date()
     }
 }
 

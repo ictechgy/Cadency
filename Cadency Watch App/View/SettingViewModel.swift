@@ -19,8 +19,7 @@ final class SettingViewModel {
     
     init(modelContext: ModelContext) {
         let latestSetting = (try? modelContext.fetch(
-            FetchDescriptor<MetronomeSetting>(),
-            batchSize: 1
+            FetchDescriptor<MetronomeSetting>()
         ).last) ?? .defaultSetting
         self.bpm = latestSetting.bpm
         self.hapticType = latestSetting.hapticType ?? MetronomeSetting.defaultHapticType
