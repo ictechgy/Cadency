@@ -58,6 +58,7 @@ extension SettingViewModel {
         }
     }
     
+    @MainActor
     private func saveCurrentState() {
         modelContext.insert(
             MetronomeSetting(
