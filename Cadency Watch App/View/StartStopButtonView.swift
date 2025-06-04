@@ -16,11 +16,11 @@ struct StartStopButtonView: View {
     @Environment(\.scenePhase) private var scenePhase
     
     private var bpm: Int {
-        metronomeSettings.last?.bpm ?? MetronomeSetting.defaultBPM
+        metronomeSettings.last?.bpm ?? Constants.defaultBPM
     }
     
     private var haptickType: WKHapticType {
-        metronomeSettings.last?.hapticType ?? MetronomeSetting.defaultHapticType
+        metronomeSettings.last?.hapticType ?? Constants.defaultHapticType
     }
     
     // BPM에서 interval(초) 계산

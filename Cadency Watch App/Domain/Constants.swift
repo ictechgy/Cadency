@@ -10,7 +10,10 @@ import WatchKit
 enum Constants {
     static let bpmStart: Int = 160
     static let bpmEnd: Int = 200
+    static let defaultBPM: Int = 180
     static let bpmStep: Int = 5
+    static let defaultHapticType: WKHapticType = .stop
+    
     static let bpmRange = Array(stride(from: bpmStart, through: bpmEnd, by: bpmStep))
     static let hapticOptions: [(label: String, type: WKHapticType)] = [
         ("Light", .click),

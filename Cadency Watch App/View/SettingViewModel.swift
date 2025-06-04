@@ -24,7 +24,7 @@ final class SettingViewModel {
         
         let latestSetting = (try? modelContext.fetch(fetchDescriptior).last) ?? .defaultSetting
         self.bpm = latestSetting.bpm
-        self.hapticType = latestSetting.hapticType ?? MetronomeSetting.defaultHapticType
+        self.hapticType = latestSetting.hapticType ?? Constants.defaultHapticType
         self.modelContext = modelContext
     }
 }
