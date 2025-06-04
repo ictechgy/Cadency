@@ -34,8 +34,6 @@ extension MetronomeSetting {
     }
 }
 
-// 이슈 1: HapticType 1 rawValue 이슈
-// 이슈 2: 화면 버벅거림 이슈
 @DebugDescription
 extension MetronomeSetting: CustomDebugStringConvertible {
     var debugDescription: String {
