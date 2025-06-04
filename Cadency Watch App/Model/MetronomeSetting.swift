@@ -41,3 +41,11 @@ extension MetronomeSetting {
         )
     }
 }
+
+// 이슈 1: HapticType 1 rawValue 이슈
+// 이슈 2: 화면 버벅거림 이슈
+extension MetronomeSetting {
+    var debugDescription: String {
+        return ""
+    }
+}
