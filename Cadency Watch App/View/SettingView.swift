@@ -31,19 +31,6 @@ struct SettingView: View {
                 }
                 .pickerStyle(.wheel)
                 .focusable()
-                .digitalCrownRotation(
-                    Binding(get: {
-                        Double(viewModel.bpm)
-                    }, set: { newBPM in
-                        viewModel.changeBPM(to: Int(newBPM))
-                    }),
-                    from: Double(Constants.bpmStart),
-                    through: Double(Constants.bpmEnd),
-                    by: Double(Constants.bpmStep),
-                    sensitivity: .low,
-                    isContinuous: false,
-                    isHapticFeedbackEnabled: true
-                )
             }
             
             // 진동 세기 선택
