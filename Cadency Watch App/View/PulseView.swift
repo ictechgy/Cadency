@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-// TODO: - 소리 또는 진동과 동기화
+// TODO: - 소리 또는 진동과 동기화, 접근성 (시청각장애 등) 
 struct PulseView: View {
 
     var body: some View {
