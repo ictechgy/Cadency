@@ -7,114 +7,85 @@
 
 import SwiftUI
 
-struct PulseView: View {
-    var body: some View {
-        BPMBarBeatView(bpm: 120)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.black.edgesIgnoringSafeArea(.all))
-    }
+/// BPM에 따른 컬러 (160=파랑, 200=빨강)
+func colorForBPM(_ bpm: Double) -> Color {
+    let minBPM = 160.0, maxBPM = 200.0
+    let adjustedBPM = max(0, min(1, (bpm - minBPM) / (maxBPM - minBPM)))
+    let hue = (220.0/360.0) * (1 - adjustedBPM)
+    return Color(hue: hue, saturation: 0.85, brightness: 1.0)
 }
 
-struct BouncingBarView: View {
-    // MARK: - Properties
-    var isLeft: Bool   // true면 왼쪽(위->아래), false면 오른쪽(아래->위)
-    var animate: Bool  // 현재 애니메이션 활성화
-    var barColor: Color = .cyan
-
-    @State private var gradientPosition: CGFloat = 0.0
+/// 손전등 빛살
+struct FlashlightBar: View {
+    let progress: CGFloat // 0(위), 1(아래)
+    let color: Color
 
     var body: some View {
         GeometryReader { geo in
-            // 직사각형(세로 1자)
-            ZStack(alignment: .center) {
-                RoundedRectangle(cornerRadius: geo.size.width / 2)
-                    .fill(Color.gray.opacity(0.25)) // 기본 배경
+            let width = geo.size.width
+            let height = geo.size.height
+            let centerY = progress * height
+            let spread: CGFloat = height * 0.05
 
-                RoundedRectangle(cornerRadius: geo.size.width / 2)
+            ZStack {
+                RoundedRectangle(cornerRadius: width/2)
+                    .fill(color.opacity(0.12))
+                RoundedRectangle(cornerRadius: width/2)
                     .fill(
-                        // LinearGradient 활용하여 빛 효과
                         LinearGradient(
-                            gradient: Gradient(colors: [
-                                barColor.opacity(0.1),
-                                barColor.opacity(1.0),
-                                barColor.opacity(0.1)
+                            gradient: Gradient(stops: [
+                                .init(color: color.opacity(0.00), location: 0.0),
+                                .init(color: color.opacity(0.19), location: max(0.0, (centerY - spread) / height)),
+                                .init(color: color.opacity(0.95), location: (centerY / height)),
+                                .init(color: color.opacity(0.19), location: min(1.0, (centerY + spread) / height)),
+                                .init(color: color.opacity(0.00), location: 1.0)
                             ]),
-                            startPoint: isLeft ? .top : .bottom,
-                            endPoint: isLeft ? .bottom : .top
+                            startPoint: .top, endPoint: .bottom
                         )
                     )
-                    .mask(
-                        // '빛의 위치'를 mask로 표현
-                        Rectangle()
-                            .fill(Color.white)
-                            .frame(
-                                height: geo.size.height * 0.4, // 빛의 두께
-                                alignment: .center
-                            )
-                            .offset(
-                                y: (geo.size.height - geo.size.height * 0.4) * gradientPosition
-                            )
-                    )
-                    .opacity(animate ? 1.0 : 0.0)
-                    .animation(.linear(duration: 0.18), value: animate)
             }
         }
     }
 }
 
-struct BPMBarBeatView: View {
-    // MARK: - Properties
+/// 실시간 시간 기반 애니메이션으로 빛이 자연스럽게 이동
+struct BPMFlashlightBarsView: View {
     let bpm: Double
-    // bpm 60 → 1초에 한 번, bpm 120 → 0.5초에 한 번
     var beatDuration: Double { 60.0 / bpm }
+    var color: Color { colorForBPM(bpm) }
+
+    func scan(forLeft: Bool, t: Double, dir: Bool) -> CGFloat {
+        // dir = true: 위→아래, false: 아래→위
+        let phase = dir ? t : (1 - t)
+        return forLeft ? phase : (1 - phase)
+    }
     
-    @State private var isLeftActive = true
-    @State private var leftGradientPos: CGFloat = 0
-    @State private var rightGradientPos: CGFloat = 1
-    @State private var isAnimating = false
-
     var body: some View {
-        HStack(spacing: 18) {
-            ZStack {
-                BouncingBarView(
-                    isLeft: true,
-                    animate: isLeftActive && isAnimating,
-                    barColor: .cyan
-                )
-            }
-            .frame(width: 16, height: 60)
+        TimelineView(.animation) { timeline in
+            // 한 cycle(위→아래/아래→위)은 beatDuration에 맞춤
+            let now = timeline.date.timeIntervalSinceReferenceDate
+            let beat = beatDuration
+            let phase = (now / beat).truncatingRemainder(dividingBy: 1.0) // 0~1
 
-            ZStack {
-                BouncingBarView(
-                    isLeft: false,
-                    animate: !isLeftActive && isAnimating,
-                    barColor: .pink
-                )
+            // 몇 번째 beat(짝수: 아래→위, 홀수: 위→아래)
+            let beatCount = Int(now / beat)
+            let isDown = beatCount.isMultiple(of: 2)
+            let leftT = scan(forLeft: true, t: phase, dir: isDown)
+            let rightT = scan(forLeft: false, t: phase, dir: isDown)
+
+            HStack(spacing: 18) {
+                FlashlightBar(progress: leftT, color: color)
+                    .frame(width: 17, height: 70)
+                FlashlightBar(progress: rightT, color: color)
+                    .frame(width: 17, height: 70)
             }
-            .frame(width: 16, height: 60)
-        }
-        .onAppear {
-            startBeat()
         }
     }
+}
 
-    private func startBeat() {
-        withAnimation(.linear(duration: 0.18)) { isAnimating = true }
+struct PulseView: View {
 
-        Timer.scheduledTimer(withTimeInterval: beatDuration, repeats: true) { timer in
-            isLeftActive.toggle()
-
-            // 깜빡임 시작
-            withAnimation(.linear(duration: 0.18)) {
-                isAnimating = true
-            }
-
-            // 빛이 훑는 애니메이션(약 0.38초간)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.18) {
-                withAnimation(.linear(duration: beatDuration - 0.18)) {
-                    isAnimating = false
-                }
-            }
-        }
+    var body: some View {
+        EmptyView()
     }
 }
