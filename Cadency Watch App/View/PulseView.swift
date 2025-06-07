@@ -7,6 +7,16 @@
 
 import SwiftUI
 
+// TODO: - 소리 또는 진동과 동기화
+struct PulseView: View {
+
+    var body: some View {
+        EmptyView()
+    }
+}
+
+// MARK: - 구현 세부사항
+
 /// BPM에 따른 컬러 (160=파랑, 200=빨강)
 func colorForBPM(_ bpm: Double) -> Color {
     let minBPM = 160.0, maxBPM = 200.0
@@ -80,12 +90,5 @@ struct BPMFlashlightBarsView: View {
                     .frame(width: 17, height: 70)
             }
         }
-    }
-}
-
-struct PulseView: View {
-
-    var body: some View {
-        EmptyView()
     }
 }
