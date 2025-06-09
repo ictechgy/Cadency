@@ -13,6 +13,7 @@ struct CadencyView: View {
     
     var body: some View {
         TabView {
+            FootView()
             StartStopButtonView()
             SettingView(viewModel: SettingViewModel(modelContext: modelContext))
         }
