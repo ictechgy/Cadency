@@ -12,6 +12,7 @@ import SwiftData
 struct StartStopButtonView: View {
     @State private var isTriggered: Bool = false
     @State private var timerCancellable: AnyCancellable?
+    @State private var progressFoot: PulseFootIconView.ProgressFoot = .none
     @Query private var metronomeSettings: [MetronomeSetting]
     @Environment(\.scenePhase) private var scenePhase
     
@@ -29,6 +30,8 @@ struct StartStopButtonView: View {
     }
     
     var body: some View {
+        PulseFootIconView(progressFoot: $progressFoot)
+        
         // 시작/정지 버튼
         Button {
             isTriggered ? stopMetronome(keepTrigger: false) : startMetronome()
@@ -66,6 +69,7 @@ extension StartStopButtonView {
             .autoconnect()
             .sink { _ in
                 WKInterfaceDevice.current().play(haptickType)
+                progressFoot.start()
             }
     }
 
@@ -76,6 +80,7 @@ extension StartStopButtonView {
         }
         timerCancellable?.cancel()
         timerCancellable = nil
+        progressFoot.stop()
     }
 }
 

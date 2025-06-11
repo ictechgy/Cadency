@@ -13,7 +13,7 @@ struct BPMAlternatingIconView: View {
     private let largeScale: CGFloat = 1.4
 
     var body: some View {
-        TimelineView(.animation) { timeline in // TODO: 애니메이션 없이 테스트
+        TimelineView(.animation) { timeline in
             let now = timeline.date.timeIntervalSinceReferenceDate
             let beatDuration = 60.0 / bpm
             let progress = now / beatDuration
