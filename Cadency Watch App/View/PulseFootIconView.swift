@@ -46,7 +46,7 @@ struct PulseFootIconView: View {
     }
     
     var body: some View {
-        HStack(spacing: 26) {
+        HStack(spacing: 0) {
             Image(.footLeft)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -54,6 +54,8 @@ struct PulseFootIconView: View {
                 .scaleEffect(progressFoot == .left ? largeScale : normalScale)
                 .foregroundColor(progressFoot == .left ? .green : .gray) // TODO: BPM에 따른 색상
                 
+            Spacer()
+            
             Image(.footRight)
                 .resizable()
                 .aspectRatio(contentMode: .fit)

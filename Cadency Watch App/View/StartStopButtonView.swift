@@ -30,8 +30,6 @@ struct StartStopButtonView: View {
     }
     
     var body: some View {
-        PulseFootIconView(progressFoot: $progressFoot)
-        
         // 시작/정지 버튼
         Button {
             isTriggered ? stopMetronome(keepTrigger: false) : startMetronome()
@@ -57,6 +55,9 @@ struct StartStopButtonView: View {
             @unknown default:
                 stopMetronome(keepTrigger: true)
             }
+        }
+        .overlay {
+            PulseFootIconView(progressFoot: $progressFoot)
         }
     }
 }
