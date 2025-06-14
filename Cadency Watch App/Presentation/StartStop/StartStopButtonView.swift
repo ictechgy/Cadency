@@ -15,6 +15,9 @@ struct StartStopButtonView: View {
     @Query private var metronomeSettings: [MetronomeSetting]
     @Environment(\.scenePhase) private var scenePhase
     
+    private let triggeredColor: Color = .red.opacity(0.3)
+    private let stoppedColor: Color = .green.opacity(0.3)
+    
     private var bpm: Int {
         metronomeSettings.last?.bpm ?? Constants.defaultBPM
     }
@@ -34,14 +37,14 @@ struct StartStopButtonView: View {
             isTriggered ? stopMetronome(keepTrigger: false) : startMetronome()
         } label: {
             ZStack {
-                BPMWaveView(isRunning: isTriggered, bpm: bpm)
+                BPMWaveView(isRunning: isTriggered, bpm: bpm, waveColor: triggeredColor)
                 
                 Text(isTriggered ? "정지" : "시작")
                     .font(.title3)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background {
                         Circle()
-                            .fill(isTriggered ? .red.opacity(0.3) : .green.opacity(0.3))
+                            .fill(isTriggered ? triggeredColor : stoppedColor)
                     }
             }
         }

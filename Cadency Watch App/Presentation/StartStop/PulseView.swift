@@ -13,14 +13,15 @@ struct BPMWaveView: View {
     
     private let isRunning: Bool
     private let bpm: Int
-    private let waveColor: Color = .red.opacity(0.3)
+    private let waveColor: Color
     
     private var beatInterval: Double { 60.0 / Double(bpm) }
     private let maxPulseDuration: Double = 1.0   // 파동이 유지되는 시간(초)
     
-    init(isRunning: Bool, bpm: Int) {
+    init(isRunning: Bool, bpm: Int, waveColor: Color) {
         self.isRunning = isRunning
         self.bpm = bpm
+        self.waveColor = waveColor
     }
 
     var body: some View {
