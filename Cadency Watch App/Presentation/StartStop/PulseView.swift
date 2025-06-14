@@ -37,6 +37,7 @@ struct BPMWaveView: View {
             }
         }
         .onReceive(
+            // TODO: StartStopButtonView 의 Timer와 통합 
             Timer.publish(every: beatInterval, on: .main, in: .common).autoconnect().filter { _ in isRunning }
         ) { now in
             pulses.append(now)
