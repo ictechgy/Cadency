@@ -17,14 +17,6 @@ struct PulseView: View {
 
 // MARK: - 구현 세부사항
 
-/// BPM에 따른 컬러 (160=파랑, 200=빨강)
-func colorForBPM(_ bpm: Double) -> Color {
-    let minBPM = 160.0, maxBPM = 200.0
-    let adjustedBPM = max(0, min(1, (bpm - minBPM) / (maxBPM - minBPM)))
-    let hue = (220.0/360.0) * (1 - adjustedBPM)
-    return Color(hue: hue, saturation: 0.85, brightness: 1.0)
-}
-
 /// 손전등 빛살
 struct FlashlightBar: View {
     let progress: CGFloat // 0(위), 1(아래)
