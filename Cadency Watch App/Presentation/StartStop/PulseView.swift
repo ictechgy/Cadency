@@ -47,6 +47,10 @@ struct BPMWaveView: View {
             // BPM 바꾸면 파동 기록 초기화
             pulses.removeAll()
         }
+        .onChange(of: isRunning) { oldValue, newValue in
+            guard oldValue == true && newValue == false else { return }
+            pulses.removeAll()
+        }
     }
 }
 

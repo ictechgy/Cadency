@@ -62,6 +62,9 @@ struct StartStopButtonView: View {
                 stopMetronome(keepTrigger: true)
             }
         }
+        .onDisappear {
+            stopMetronome(keepTrigger: false)
+        }
     }
 }
 
