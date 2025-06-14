@@ -33,13 +33,17 @@ struct StartStopButtonView: View {
         Button {
             isTriggered ? stopMetronome(keepTrigger: false) : startMetronome()
         } label: {
-            Text(isTriggered ? "정지" : "시작")
-                .font(.title3)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background {
-                    Circle()
-                        .fill(isTriggered ? .red.opacity(0.3) : .green.opacity(0.3))
-                }
+            ZStack {
+                BPMWaveView(isRunning: isTriggered, bpm: bpm)
+                
+                Text(isTriggered ? "정지" : "시작")
+                    .font(.title3)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background {
+                        Circle()
+                            .fill(isTriggered ? .red.opacity(0.3) : .green.opacity(0.3))
+                    }
+            }
         }
         .tint(isTriggered ? .red : .green)
         .buttonStyle(.borderless)
