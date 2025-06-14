@@ -13,7 +13,7 @@ struct BPMWaveView: View {
     
     private let isRunning: Bool
     private let bpm: Int
-    private let waveColor: Color
+    private let waveColor: Color = .red.opacity(0.3)
     
     private var beatInterval: Double { 60.0 / Double(bpm) }
     private let maxPulseDuration: Double = 1.0   // 파동이 유지되는 시간(초)
@@ -21,7 +21,6 @@ struct BPMWaveView: View {
     init(isRunning: Bool, bpm: Int) {
         self.isRunning = isRunning
         self.bpm = bpm
-        self.waveColor = colorForBPM(bpm)
     }
 
     var body: some View {
@@ -33,7 +32,7 @@ struct BPMWaveView: View {
                     duration: maxPulseDuration,
                     color: waveColor
                 )
-                .frame(width: 72, height: 72)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
         }
         .onReceive(
@@ -73,7 +72,7 @@ struct PulseCircle: View {
     var body: some View {
         Circle()
             .stroke(color.opacity(1 - progress), lineWidth: 6)
-            .scaleEffect(1 + CGFloat(progress) * 1.8)
+            .scaleEffect(1 + CGFloat(progress) * 0.5)
             .opacity(1 - progress)
     }
 }
