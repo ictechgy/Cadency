@@ -56,9 +56,9 @@ struct StartStopButtonView: View {
                 stopMetronome(keepTrigger: true)
             }
         }
-        .overlay {
-            PulseFootIconView(progressFoot: $progressFoot)
-        }
+//        .overlay {
+//            PulseFootIconView(progressFoot: $progressFoot)
+//        }
     }
 }
 
