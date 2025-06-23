@@ -55,9 +55,22 @@
 		C98C81B12DE203AA00A09474 /* Cadency Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cadency Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		1DAA940F2E0908A8009381EB /* Exceptions for "Cadency Watch App" folder in "Cadency Watch App" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Cadency-Watch-App-Info.plist",
+			);
+			target = C98C81942DE203A900A09474 /* Cadency Watch App */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		C98C81992DE203A900A09474 /* Cadency Watch App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				1DAA940F2E0908A8009381EB /* Exceptions for "Cadency Watch App" folder in "Cadency Watch App" target */,
+			);
 			path = "Cadency Watch App";
 			sourceTree = "<group>";
 		};
@@ -456,6 +469,7 @@
 				DEVELOPMENT_TEAM = J8CB2X29B5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Cadency-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Cadency;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
@@ -486,6 +500,7 @@
 				DEVELOPMENT_TEAM = J8CB2X29B5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Cadency-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Cadency;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
