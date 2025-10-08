@@ -15,6 +15,8 @@ struct StartStopButtonView: View {
     @Query private var metronomeSettings: [MetronomeSetting]
     @Environment(\.scenePhase) private var scenePhase
     
+    @StateObject private var viewModel = StartStopButtonViewModel()
+    
     private let triggeredColor: Color = .red.opacity(0.3)
     private let stoppedColor: Color = .green.opacity(0.3)
     
@@ -77,6 +79,8 @@ extension StartStopButtonView {
             .sink { _ in
                 WKInterfaceDevice.current().play(haptickType)
             }
+        
+        viewModel.showCadence()
     }
 
     // 메트로놈 정지 함수
@@ -86,6 +90,8 @@ extension StartStopButtonView {
         }
         timerCancellable?.cancel()
         timerCancellable = nil
+        
+        viewModel.hideCadence()
     }
 }
 
