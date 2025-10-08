@@ -10,8 +10,9 @@ import HealthKit
 final class WorkoutManager {
     private let store = HKHealthStore()
     private var session: HKWorkoutSession?
-    private var builder: HKLiveWorkoutBuilder?
+    private var builder: HKLiveWorkoutBuilder? // TODO: 판단 후 제거 예정
 
+    // TODO: 판단 후 제거 예정
     func requestAuthorization() async throws {
         let toShare: Set = [HKObjectType.workoutType()]
         let toRead = [
