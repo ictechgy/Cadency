@@ -48,6 +48,14 @@ struct StartStopButtonView: View {
                         Circle()
                             .fill(isTriggered ? triggeredColor : stoppedColor)
                     }
+                    .overlay {
+                        if isTriggered, let cadenceSPM = viewModel.cadenceSPM {
+                            VStack {
+                                Spacer()
+                                Text("케이던스: \(cadenceSPM)")
+                            }
+                        }
+                    }
             }
         }
         .tint(isTriggered ? .red : .green)
