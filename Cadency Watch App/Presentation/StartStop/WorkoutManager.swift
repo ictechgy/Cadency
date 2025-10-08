@@ -34,6 +34,11 @@ final class WorkoutManager {
         session?.startActivity(with: Date())
         builder?.beginCollection(withStart: Date()) { _, _ in }
     }
+    
+    // TODO: 미종료 상태에서 사용하도록 수정 예정 
+    func pauseWorkout() {
+        session?.pause()
+    }
 
     func stopWorkout() {
         session?.end()

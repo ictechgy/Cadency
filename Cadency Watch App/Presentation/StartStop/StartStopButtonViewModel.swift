@@ -10,7 +10,7 @@ import Combine
 
 final class StartStopButtonViewModel: ObservableObject {
     private let pedometer = CMPedometer()
-    @MainActor @Published private(set) var cadenceSPM: Double?
+    @MainActor @Published private(set) var cadenceSPM: Double? // TODO: 스무딩 추가 예정
 
     func showCadence() {
         guard CMPedometer.isCadenceAvailable() else { return }
