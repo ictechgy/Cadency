@@ -95,11 +95,10 @@ extension StartStopButtonView {
     func stopMetronome(keepTrigger: Bool) {
         if keepTrigger == false {
             isTriggered = false
+            viewModel.hideCadence()
         }
         timerCancellable?.cancel()
         timerCancellable = nil
-        
-        viewModel.hideCadence()
     }
 }
 
