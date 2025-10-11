@@ -462,7 +462,6 @@
 				INFOPLIST_FILE = "Cadency-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Cadency;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "백그라운드에서도 케이던스 정보 수집을 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_NSMotionUsageDescription = "케이던스 정보 접근을 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
@@ -497,7 +496,6 @@
 				INFOPLIST_FILE = "Cadency-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Cadency;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "백그라운드에서도 케이던스 정보 수집을 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_NSMotionUsageDescription = "케이던스 정보 접근을 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
