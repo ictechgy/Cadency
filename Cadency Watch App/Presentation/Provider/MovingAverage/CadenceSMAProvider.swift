@@ -7,13 +7,15 @@
 
 import Foundation
 
-actor CadenceSMAProvider {
+actor CadenceSMAProvider: MovingAverageProvider {
     private let window: TimeInterval
     private var samples: [(t: Date, spm: Double)] = []
 
     init(windowSeconds: TimeInterval = 3) {
         self.window = max(0.5, windowSeconds)
     }
+    
+    private(set) var value: Double? = nil
 
     @discardableResult
     func push(spm: Double, at time: Date = Date()) -> Double {
@@ -23,7 +25,10 @@ actor CadenceSMAProvider {
         while let first = samples.first, first.t < cutoff { samples.removeFirst() }
 
         // 시간가중 평균: 구간별(Δt) 가중합
-        guard samples.count >= 2 else { return spm }
+        guard samples.count >= 2 else {
+            self.value = spm
+            return spm
+        }
         var sum = 0.0
         var denom = 0.0
         for i in 1..<samples.count {
@@ -39,7 +44,10 @@ actor CadenceSMAProvider {
             sum += last.spm * max(0, dtTail)
             denom += max(0, dtTail)
         }
-        return denom > 0 ? sum/denom : spm
+        
+        let smoothedSPM = denom > 0 ? sum/denom : spm
+        self.value = smoothedSPM
+        return smoothedSPM
     }
     
     func clear() {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-actor CadenceEMAProvider {
+actor CadenceEMAProvider: MovingAverageProvider {
     /// 시간상수(초). 5로 두면 약 5초 정도에 63% 따라붙습니다.
     private let tau: TimeInterval
     private var lastTime: Date?
@@ -16,6 +16,8 @@ actor CadenceEMAProvider {
     init(tauSeconds: TimeInterval = 5) { // TODO: 스무딩 5초값 설정에서 바꿀 수 있도록 수정
         self.tau = max(0.1, tauSeconds)
     }
+    
+    var value: Double? { y }
 
     /// 새 샘플 추가 (steps/min 단위로 넣으세요)
     @discardableResult
@@ -32,6 +34,8 @@ actor CadenceEMAProvider {
         lastTime = time
         return newY
     }
-
-    var value: Double? { y }
+    
+    func clear() {
+        self.y = nil
+    }
 }
