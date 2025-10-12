@@ -12,6 +12,7 @@ import Combine
 final class StartStopButtonViewModel: ObservableObject {
     private let pedometer = CMPedometer()
     private let cadenceEMAProvider = CadenceEMAProvider()
+    private let cadenceSMAProvider = CadenceSMAProvider() // TODO: 프로토콜 + 의존성주입
     private var workoutManager = WorkoutManager()
     
     @Published private(set) var cadenceSPM: Double?
@@ -28,7 +29,7 @@ final class StartStopButtonViewModel: ObservableObject {
                 Task.detached {
                     let cadencePerMin = cadencePerSec * 60.0  // steps/min
                     // FIXME: - EMA는 너무 지연이 커서 SMA로 변경 예정
-                    let smoothedCadence = await self?.cadenceEMAProvider.push(spm: cadencePerMin)
+                    let smoothedCadence = await self?.cadenceSMAProvider.push(spm: cadencePerMin)
                     
                     await MainActor.run {
                         self?.cadenceSPM = smoothedCadence
