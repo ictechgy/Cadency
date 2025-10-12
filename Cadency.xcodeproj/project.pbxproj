@@ -464,7 +464,6 @@
 				INFOPLIST_FILE = "Cadency-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Cadency;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "앱 실행중 측정된 운동정보를 건강앱에 기록하기 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_NSMotionUsageDescription = "케이던스 표시를 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -500,7 +499,6 @@
 				INFOPLIST_FILE = "Cadency-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Cadency;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "앱 실행중 측정된 운동정보를 건강앱에 기록하기 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_NSMotionUsageDescription = "케이던스 표시를 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
