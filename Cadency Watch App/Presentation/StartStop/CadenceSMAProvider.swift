@@ -8,10 +8,10 @@
 import Foundation
 
 actor CadenceSMAProvider {
-    private let window: TimeInterval  // 예: 5초
+    private let window: TimeInterval
     private var samples: [(t: Date, spm: Double)] = []
 
-    init(windowSeconds: TimeInterval = 5) {
+    init(windowSeconds: TimeInterval = 3) {
         self.window = max(0.5, windowSeconds)
     }
 
