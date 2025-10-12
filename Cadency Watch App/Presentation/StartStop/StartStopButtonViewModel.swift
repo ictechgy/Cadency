@@ -12,11 +12,15 @@ import Combine
 final class StartStopButtonViewModel: ObservableObject {
     private let pedometer = CMPedometer()
     private let cadenceEMAProvider = CadenceEMAProvider()
-    @Published private(set) var cadenceSPM: Double? // TODO: 스무딩 추가 예정
+    private var workoutManager = WorkoutManager()
+    
+    @Published private(set) var cadenceSPM: Double?
 
-    func showCadence() {
+    func showCadence() async {
         guard CMPedometer.isCadenceAvailable() else { return }
         
+        try? await workoutManager.requestAuthorization()
+        try? workoutManager.startWorkout()
         pedometer.startUpdates(from: Date()) { [weak self] data, error in
             guard error == nil, let cadencePerSec = data?.currentCadence?.doubleValue else { return }
             
@@ -35,5 +39,6 @@ final class StartStopButtonViewModel: ObservableObject {
         guard CMPedometer.isCadenceAvailable() else { return }
         
         pedometer.stopUpdates()
+        workoutManager.stopWorkout()
     }
 }
