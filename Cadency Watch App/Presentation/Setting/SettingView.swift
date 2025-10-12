@@ -10,9 +10,7 @@ import SwiftData
 
 struct SettingView: View {
     let viewModel: SettingViewModel
-    
-    @FocusState private var bpmPickerFocused: Bool
-    
+        
     var body: some View {
         VStack(spacing: 16) {
             // BPM 표시 및 크라운 조작

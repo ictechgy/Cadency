@@ -13,7 +13,6 @@ final class SettingViewModel {
     private let debounceTime: Duration = .milliseconds(500)
     private(set) var bpm: Int
     private(set) var hapticType: WKHapticType
-    private var hapticIndex: Int = 0
     private let modelContext: ModelContext
     @MainActor private var bpmSavingTask: Task<Void, Error>?
     @MainActor private var hapticTypeSavingTask: Task<Void, Error>?
