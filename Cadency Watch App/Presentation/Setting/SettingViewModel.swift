@@ -59,6 +59,12 @@ extension SettingViewModel {
     
     @MainActor
     private func saveCurrentState() {
+        // TODO: upsert형태로 변경 필요. 마이그레이션 필요
+        let fetchDescriptior = FetchDescriptor<MetronomeSetting>()
+        (try? modelContext.fetch(fetchDescriptior))?.forEach {
+            modelContext.delete($0)
+        }
+        
         modelContext.insert(
             MetronomeSetting(
                 bpm: self.bpm,
