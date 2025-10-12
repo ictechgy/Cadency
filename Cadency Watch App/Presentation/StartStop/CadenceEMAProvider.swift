@@ -13,7 +13,7 @@ actor CadenceEMAProvider {
     private var lastTime: Date?
     private var y: Double?  // 현재 EMA (단위: spm)
 
-    init(tauSeconds: TimeInterval = 5) {
+    init(tauSeconds: TimeInterval = 5) { // TODO: 스무딩 5초값 설정에서 바꿀 수 있도록 수정
         self.tau = max(0.1, tauSeconds)
     }
 
