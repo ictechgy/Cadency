@@ -43,8 +43,9 @@ final class WorkoutManager {
 
     func stopWorkout() {
         session?.end()
-        builder?.endCollection(withEnd: Date()) { _, _ in
-            self.builder?.finishWorkout { _, _ in }
+        Task {
+            try await builder?.endCollection(at: Date())
+            try await builder?.finishWorkout()
         }
     }
 }
