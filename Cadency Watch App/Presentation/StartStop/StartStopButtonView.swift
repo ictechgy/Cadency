@@ -33,6 +33,18 @@ struct StartStopButtonView: View {
         60.0 / Double(bpm)
     }
     
+    private var mark: String {
+        guard let cadenceSPM = viewModel.cadenceSPM else { return "" }
+        
+        if cadenceSPM > 185 {
+            return "▼"
+        } else if cadenceSPM < 175 {
+            return "▲"
+        } else {
+            return "👍"
+        }
+    }
+    
     var body: some View {
         // 시작/정지 버튼
         Button {
@@ -42,7 +54,7 @@ struct StartStopButtonView: View {
                 BPMWaveView(isRunning: isTriggered, bpm: bpm, waveColor: triggeredColor)
                 
                 Text(isTriggered ? "정지" : "시작")
-                    .font(.title3)
+                    .font(.title2)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background {
                         Circle()
@@ -52,7 +64,13 @@ struct StartStopButtonView: View {
                         if isTriggered, let cadenceSPM = viewModel.cadenceSPM {
                             VStack {
                                 Spacer()
-                                Text("케이던스: \(cadenceSPM)")
+                                Spacer()
+                                Spacer()
+                                Spacer()
+                                Text("\(mark) \(Int(cadenceSPM)) spm")
+                                    .font(.footnote)
+                                    .foregroundStyle(.white)
+                                Spacer()
                             }
                         }
                     }
