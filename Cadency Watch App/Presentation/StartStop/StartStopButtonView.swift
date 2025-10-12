@@ -91,7 +91,7 @@ struct StartStopButtonView: View {
                                     .foregroundStyle(.white)
                                 Spacer()
                             }
-                            .font(.footnote)
+                            .font(.title3)
                         }
                     }
             }
