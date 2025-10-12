@@ -17,10 +17,14 @@ struct StartStopButtonView: View {
     
     @Environment(\.scenePhase) private var scenePhase
     
-    @StateObject private var viewModel = StartStopButtonViewModel()
+    @StateObject private var viewModel: StartStopButtonViewModel
     
     private let triggeredColor: Color = .red.opacity(0.3)
     private let stoppedColor: Color = .green.opacity(0.3)
+    
+    init() {
+        self._viewModel = .init(wrappedValue: .init(movingAverageProvider: CadenceSMAProvider())) // TODO: DI Container로부터 주입
+    }
     
     private var bpm: Int {
         metronomeSettings.last?.bpm ?? Constants.defaultBPM

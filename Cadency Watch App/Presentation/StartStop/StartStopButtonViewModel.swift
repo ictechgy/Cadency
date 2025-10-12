@@ -11,11 +11,14 @@ import Combine
 @MainActor
 final class StartStopButtonViewModel: ObservableObject {
     private let pedometer = CMPedometer()
-    private let cadenceEMAProvider = CadenceEMAProvider()
-    private let cadenceSMAProvider = CadenceSMAProvider() // TODO: 프로토콜 + 의존성주입
+    private let movingAverageProvider: MovingAverageProvider
     private var workoutManager = WorkoutManager()
     
     @Published private(set) var cadenceSPM: Double?
+    
+    init(movingAverageProvider: MovingAverageProvider) {
+        self.movingAverageProvider = movingAverageProvider
+    }
 
     func showCadence() {
         guard CMPedometer.isCadenceAvailable() else { return }
@@ -29,7 +32,7 @@ final class StartStopButtonViewModel: ObservableObject {
                 Task.detached {
                     let cadencePerMin = cadencePerSec * 60.0  // steps/min
                     // FIXME: - EMA는 너무 지연이 커서 SMA로 변경 예정
-                    let smoothedCadence = await self?.cadenceSMAProvider.push(spm: cadencePerMin)
+                    let smoothedCadence = await self?.movingAverageProvider.push(spm: cadencePerMin, at: Date())
                     
                     await MainActor.run {
                         self?.cadenceSPM = smoothedCadence
@@ -46,7 +49,7 @@ final class StartStopButtonViewModel: ObservableObject {
         pedometer.stopUpdates()
         workoutManager.stopWorkout()
         Task {
-            await cadenceSMAProvider.clear()
+            await movingAverageProvider.clear()
         }
     }
 }
