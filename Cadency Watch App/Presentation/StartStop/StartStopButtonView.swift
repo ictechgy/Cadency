@@ -40,8 +40,22 @@ struct StartStopButtonView: View {
             return "▼"
         } else if cadenceSPM < 175 {
             return "▲"
-        } else {
+        } else if cadenceSPM == 180 {
             return "👍"
+        } else {
+            return "•"
+        }
+    }
+    
+    private var markStyle: any ShapeStyle {
+        guard let cadenceSPM = viewModel.cadenceSPM else { return .primary }
+        
+        if cadenceSPM > 185 {
+            return Color.red
+        } else if cadenceSPM < 175 {
+            return Color.orange
+        } else {
+            return Color.teal
         }
     }
     
@@ -67,11 +81,14 @@ struct StartStopButtonView: View {
                                 Spacer()
                                 Spacer()
                                 Spacer()
-                                Text("\(mark) \(Int(cadenceSPM)) spm")
-                                    .font(.footnote)
+                                Text("\(mark)")
+                                    .foregroundStyle(markStyle)
+                                +
+                                Text(" \(Int(cadenceSPM)) spm")
                                     .foregroundStyle(.white)
                                 Spacer()
                             }
+                            .font(.footnote)
                         }
                     }
             }
