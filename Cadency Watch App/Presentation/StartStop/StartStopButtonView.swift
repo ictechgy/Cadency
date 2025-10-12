@@ -109,6 +109,7 @@ struct StartStopButtonView: View {
             @unknown default:
                 stopMetronome(keepTrigger: true)
             }
+            // FIXME: - 앱 종료 시 HealthKit 종료 필요
         }
         .onDisappear {
             if isTriggered {
