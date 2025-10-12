@@ -25,6 +25,8 @@ final class StartStopButtonViewModel: ObservableObject {
     }
 
     func hideCadence() {
+        guard CMPedometer.isCadenceAvailable() else { return }
+        
         pedometer.stopUpdates()
     }
 }
