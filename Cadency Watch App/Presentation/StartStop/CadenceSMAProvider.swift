@@ -41,4 +41,8 @@ actor CadenceSMAProvider {
         }
         return denom > 0 ? sum/denom : spm
     }
+    
+    func clear() {
+        self.samples.removeAll()
+    }
 }

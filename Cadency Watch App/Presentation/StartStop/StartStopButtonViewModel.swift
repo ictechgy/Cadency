@@ -42,7 +42,11 @@ final class StartStopButtonViewModel: ObservableObject {
     func hideCadence() {
         guard CMPedometer.isCadenceAvailable() else { return }
         
+        cadenceSPM = nil
         pedometer.stopUpdates()
         workoutManager.stopWorkout()
+        Task {
+            await cadenceSMAProvider.clear()
+        }
     }
 }
