@@ -65,6 +65,7 @@ struct StartStopButtonView: View {
             isTriggered ? stopMetronome(keepTrigger: false) : startMetronome()
         } label: {
             ZStack {
+                // TODO: 소리 추가 예정
                 BPMWaveView(isRunning: isTriggered, bpm: bpm, waveColor: triggeredColor)
                 
                 Text(isTriggered ? "정지" : "시작")
