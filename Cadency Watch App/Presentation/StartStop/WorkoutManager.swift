@@ -14,6 +14,7 @@ final class WorkoutManager {
 
     func requestAuthorization() async throws {
         let toShare: Set = [HKObjectType.workoutType()]
+        // FIXME: 권한 다이어트 필요 or 데이터 보여주기
         let toRead = [
             HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning),
             HKQuantityType.quantityType(forIdentifier: .runningSpeed) // 유용한 보조지표
