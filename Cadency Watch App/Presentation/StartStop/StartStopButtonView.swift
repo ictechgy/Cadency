@@ -12,7 +12,9 @@ import SwiftData
 struct StartStopButtonView: View {
     @State private var isTriggered: Bool = false
     @State private var timerCancellable: AnyCancellable?
-    @Query private var metronomeSettings: [MetronomeSetting]
+    @Query(FetchDescriptor<MetronomeSetting>(sortBy: [.init(\.createdAt, order: .reverse)]))
+    private var metronomeSettings: [MetronomeSetting]
+    
     @Environment(\.scenePhase) private var scenePhase
     
     @StateObject private var viewModel = StartStopButtonViewModel()
