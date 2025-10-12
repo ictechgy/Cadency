@@ -31,7 +31,6 @@ final class StartStopButtonViewModel: ObservableObject {
                 
                 Task.detached {
                     let cadencePerMin = cadencePerSec * 60.0  // steps/min
-                    // FIXME: - EMA는 너무 지연이 커서 SMA로 변경 예정
                     let smoothedCadence = await self?.movingAverageProvider.push(spm: cadencePerMin, at: Date())
                     
                     await MainActor.run {
