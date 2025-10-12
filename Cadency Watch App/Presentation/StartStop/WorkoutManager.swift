@@ -27,4 +27,6 @@ final class WorkoutManager {
     func stopWorkout() {
         session?.end()
     }
+    
+    // TODO: 필요시 워크아웃 -> 헬스킷에 저장 (워크아웃 빌더)
 }
