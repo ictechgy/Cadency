@@ -16,20 +16,22 @@ final class StartStopButtonViewModel: ObservableObject {
     
     @Published private(set) var cadenceSPM: Double?
 
-    func showCadence() async {
+    func showCadence() {
         guard CMPedometer.isCadenceAvailable() else { return }
         
-        try? await workoutManager.requestAuthorization()
-        try? workoutManager.startWorkout()
-        pedometer.startUpdates(from: Date()) { [weak self] data, error in
-            guard error == nil, let cadencePerSec = data?.currentCadence?.doubleValue else { return }
-            
-            Task.detached {
-                let cadencePerMin = cadencePerSec * 60.0  // steps/min
-                let smoothedCadence = await self?.cadenceEMAProvider.push(spm: cadencePerMin)
+        Task {
+            try? await workoutManager.requestAuthorization()
+            try? workoutManager.startWorkout()
+            pedometer.startUpdates(from: Date()) { [weak self] data, error in
+                guard error == nil, let cadencePerSec = data?.currentCadence?.doubleValue else { return }
                 
-                await MainActor.run {
-                    self?.cadenceSPM = smoothedCadence
+                Task.detached {
+                    let cadencePerMin = cadencePerSec * 60.0  // steps/min
+                    let smoothedCadence = await self?.cadenceEMAProvider.push(spm: cadencePerMin)
+                    
+                    await MainActor.run {
+                        self?.cadenceSPM = smoothedCadence
+                    }
                 }
             }
         }
