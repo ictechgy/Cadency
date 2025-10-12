@@ -7,6 +7,7 @@
 
 import HealthKit
 
+// TODO: ViewModel, 클래스들 Actor isolation 또는 actor타입으로 변경 / global actor 적용
 final class WorkoutManager {
     private let store = HKHealthStore()
     private var session: HKWorkoutSession?
