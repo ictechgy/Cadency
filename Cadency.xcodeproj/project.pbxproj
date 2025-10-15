@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C98C81962DE203A900A09474 /* Cadency Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C98C81952DE203A900A09474 /* Cadency Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C99844C82EA010F800E6D0A0 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = C99844C72EA010F800E6D0A0 /* ComposableArchitecture */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C99844C82EA010F800E6D0A0 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +160,7 @@
 			);
 			name = "Cadency Watch App";
 			packageProductDependencies = (
+				C99844C72EA010F800E6D0A0 /* ComposableArchitecture */,
 			);
 			productName = "Cadency Watch App";
 			productReference = C98C81952DE203A900A09474 /* Cadency Watch App.app */;
@@ -244,6 +247,9 @@
 			);
 			mainGroup = C98C81882DE203A900A09474;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				C99844C62EA010F800E6D0A0 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C98C81902DE203A900A09474 /* Products */;
 			projectDirPath = "";
@@ -678,6 +684,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C99844C62EA010F800E6D0A0 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.23.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C99844C72EA010F800E6D0A0 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C99844C62EA010F800E6D0A0 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C98C81892DE203A900A09474 /* Project object */;
 }
