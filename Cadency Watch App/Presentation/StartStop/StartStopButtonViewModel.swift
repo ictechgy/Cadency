@@ -7,6 +7,7 @@
 
 import CoreMotion
 import Combine
+import ComposableArchitecture
 
 @MainActor
 final class StartStopButtonViewModel: ObservableObject {
@@ -49,6 +50,65 @@ final class StartStopButtonViewModel: ObservableObject {
         workoutManager.stopWorkout()
         Task {
             await movingAverageProvider.clear()
+        }
+    }
+}
+
+// MARK: StartStopButtonViewModel -> StartStopFeature
+@Reducer
+struct StartStopFeature {
+    @ObservableState
+    struct State: Equatable {
+        var isRunning: Bool = false
+        var cadenceSPM: Double?
+        var bpm: Int
+    }
+    
+    enum Action: ViewAction, Equatable {
+        enum View: Equatable {
+            case startTapped
+            case stopTapped
+        }
+        case view(View)
+        case beat
+        
+        case cadenceAcquired(Double)
+        case cadenceNotAcquired
+    }
+    
+    @Dependency(\.continuousClock) var clock
+    enum CancelID { case timer }
+    
+    var body: some ReducerOf<Self> {
+        Reduce { state, action in
+            switch action {
+            case .view(.startTapped):
+                state.isRunning = true
+                let currentBPM = state.bpm
+                return .run { send in
+                    for await _ in clock.timer(interval: .seconds(60) / currentBPM) {
+                        await send(.beat)
+                    }
+                }
+                
+            case .view(.stopTapped):
+                state.isRunning = false
+                state.cadenceSPM = nil
+                return .cancel(id: CancelID.timer)
+                
+            case .beat:
+                return .run { send in
+                    
+                }
+                
+            case .cadenceAcquired(let value):
+                state.cadenceSPM = value
+                return .none
+                
+            case .cadenceNotAcquired:
+                state.cadenceSPM = nil
+                return .none
+            }
         }
     }
 }
