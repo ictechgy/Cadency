@@ -90,6 +90,7 @@ struct StartStopFeature {
                         await send(.beat)
                     }
                 }
+                .cancellable(id: CancelID.timer, cancelInFlight: true)
                 
             case .view(.stopTapped):
                 state.isRunning = false
