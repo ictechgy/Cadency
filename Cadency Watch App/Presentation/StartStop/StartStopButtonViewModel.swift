@@ -72,7 +72,7 @@ struct StartStopFeature {
         case view(View)
         
         case started
-        case stoped
+        case stopped
         case beat
         
         case cadenceAcquired(Double)
@@ -88,7 +88,7 @@ struct StartStopFeature {
             case .view(.buttonTapped):
                 state.isRunning = !state.isRunning
                 
-                let actionToBeProcessed: Action = state.isRunning ? .started : .stoped
+                let actionToBeProcessed: Action = state.isRunning ? .started : .stopped
                 return .send(actionToBeProcessed)
                 
             case .started:
@@ -100,8 +100,9 @@ struct StartStopFeature {
                 }
                 .cancellable(id: CancelID.timer, cancelInFlight: true)
                 
-            case .stoped:
+            case .stopped:
                 state.cadenceSPM = nil
+                state.beatSequence = 0
                 return .cancel(id: CancelID.timer)
                 
             case .beat:

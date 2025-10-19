@@ -83,11 +83,13 @@ struct PulseView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
         }
-        .onChange(of: beatSequence) { _ in
-            let now = Date()
-            pulses.append(now)
-            // 오래된 파동 제거
-            pulses = pulses.filter { now.timeIntervalSince($0) < maxPulseDuration }
+        .onChange(of: beatSequence) { beatSequence in
+            if beatSequence != .zero {
+                let now = Date()
+                pulses.append(now)
+                // 오래된 파동 제거
+                pulses = pulses.filter { now.timeIntervalSince($0) < maxPulseDuration }
+            }
         }
         .onChange(of: bpm) { _, _ in
             // BPM 바꾸면 파동 기록 초기화
