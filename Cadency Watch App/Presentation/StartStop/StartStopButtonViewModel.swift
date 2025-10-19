@@ -66,10 +66,12 @@ struct StartStopFeature {
     
     enum Action: ViewAction, Equatable {
         enum View: Equatable {
-            case startTapped
-            case stopTapped
+            case buttonTapped
         }
         case view(View)
+        
+        case started
+        case stoped
         case beat
         
         case cadenceAcquired(Double)
@@ -82,8 +84,13 @@ struct StartStopFeature {
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
-            case .view(.startTapped):
-                state.isRunning = true
+            case .view(.buttonTapped):
+                state.isRunning = !state.isRunning
+                
+                let actionToBeProcessed: Action = state.isRunning ? .started : .stoped
+                return .send(actionToBeProcessed)
+                
+            case .started:
                 let currentBPM = state.bpm
                 return .run { send in
                     for await _ in clock.timer(interval: .seconds(60) / currentBPM) {
@@ -92,8 +99,7 @@ struct StartStopFeature {
                 }
                 .cancellable(id: CancelID.timer, cancelInFlight: true)
                 
-            case .view(.stopTapped):
-                state.isRunning = false
+            case .stoped:
                 state.cadenceSPM = nil
                 return .cancel(id: CancelID.timer)
                 
