@@ -55,6 +55,52 @@ struct BPMWaveView: View {
     }
 }
 
+// MARK: - BPMWaveView -> PulseView
+struct PulseView: View {
+    @State private var pulses: [Date] = []
+    
+    private let isRunning: Bool
+    private let beatSequence: Int
+    private let waveColor: Color
+    
+    private let maxPulseDuration: Double = 1.0   // 파동이 유지되는 시간(초)
+    
+    init(isRunning: Bool, beatSequence: Int, waveColor: Color) {
+        self.isRunning = isRunning
+        self.beatSequence = beatSequence
+        self.waveColor = waveColor
+    }
+
+    var body: some View {
+        ZStack {
+            // 여러 개의 파동 표시
+            ForEach(pulses, id: \.self) { pulseStart in
+                PulseAnimationView(
+                    startDate: pulseStart,
+                    duration: maxPulseDuration,
+                    color: waveColor
+                )
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
+        }
+        .onChange(of: beatSequence) { _ in
+            let now = Date()
+            pulses.append(now)
+            // 오래된 파동 제거
+            pulses = pulses.filter { now.timeIntervalSince($0) < maxPulseDuration }
+        }
+        .onChange(of: bpm) { _, _ in
+            // BPM 바꾸면 파동 기록 초기화
+            pulses.removeAll()
+        }
+        .onChange(of: isRunning) { oldValue, newValue in
+            guard oldValue == true && newValue == false else { return }
+            pulses.removeAll()
+        }
+    }
+}
+
+
 struct PulseAnimationView: View {
     let startDate: Date
     let duration: Double
