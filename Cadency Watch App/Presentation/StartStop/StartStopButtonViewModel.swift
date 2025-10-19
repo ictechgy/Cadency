@@ -54,7 +54,7 @@ final class StartStopButtonViewModel: ObservableObject {
     }
 }
 
-// MARK: StartStopButtonViewModel -> StartStopFeature
+// MARK: - StartStopButtonViewModel -> StartStopFeature
 @Reducer
 struct StartStopFeature {
     @ObservableState
@@ -62,6 +62,7 @@ struct StartStopFeature {
         var isRunning: Bool = false
         var cadenceSPM: Double?
         var bpm: Int
+        var beatSequence = 0
     }
     
     enum Action: ViewAction, Equatable {
@@ -104,9 +105,8 @@ struct StartStopFeature {
                 return .cancel(id: CancelID.timer)
                 
             case .beat:
-                return .run { send in
-                    
-                }
+                state.beatSequence &+= 1
+                return .none
                 
             case .cadenceAcquired(let value):
                 state.cadenceSPM = value
