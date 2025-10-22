@@ -11,9 +11,9 @@ import HealthKit
 
 @DependencyClient
 struct WorkoutClient {
-    var requestAuthorization: () async throws -> Void
-    var startWorkout: () async throws -> Void
-    var stopWorkout: () async throws -> Void
+    var requestAuthorization: @Sendable () async throws -> Void
+    var startWorkout: @Sendable () async throws -> Void
+    var stopWorkout: @Sendable () async throws -> Void
 }
 
 extension WorkoutClient: DependencyKey {
